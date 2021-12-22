@@ -40,7 +40,7 @@
     <br>
     <br>
     <br>
-    <h1 style="text-align:center">野菜レジ</h1>
+    <h1 style="text-align:center">野菜レジ1</h1>
     <div style="text-align:center">Teachable Machine Image Model</div>
     <div style="text-align:center" class="area">
     <button a class="inline-block button" href="#"  onclick="init()">お買い物スタート</button>
@@ -166,10 +166,12 @@
             document.getElementById("countcabage").textContent="キャベツ95円×"+countcabage+"点";
             document.getElementById("counttomato").textContent="トマト48円×"+counttomato+"点";
 
-            if(b!=1){
+            bgm.pause();
+            bgm.play();
+            /*if(b!=1){
             bgm.play();
             b=1;
-            }
+            }*/
     }
             document.getElementById("counting").onclick = function() {
             var confirm = new Audio('confirm.mp3');
@@ -182,8 +184,8 @@
             counttomato = 0;
             var end = new Audio('end.mp3');
             end.play();
-            bgm.pause();
-            b=2;
+            //bgm.pause();
+            //b=2;
         }
     
     
