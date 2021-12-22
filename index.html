@@ -17,7 +17,7 @@
     <title>野菜レジ</title>
 </head>
 <body>
-    <h1 style="text-align:center">野菜レジ1</h1>
+    <h1 style="text-align:center">野菜レジ2</h1>
     <div style="text-align:center">Teachable Machine Image Model</div>
     <div style="text-align:center" class="area">
     <button a class="inline-block button" href="#"  onclick="init()">Start</button>
@@ -66,6 +66,7 @@
         for (let i = 0; i < maxPredictions; i++) { // and class labels
             labelContainer.appendChild(document.createElement("div"));
         }
+    
         var welcome =new Audio('welcome.mp3')
         welcome.play();
     }
@@ -76,18 +77,16 @@
         var countcabage = 0;
         var counttomato = 0;
     
-    async function  loop() {
+    async function loop() {
         webcam.update(); // update the webcam frame
         await predict();
         window.requestAnimationFrame(loop);
-    }
+        }
 
     // run the webcam image through the image model
-    async function predict(){
+    async function predict() {
         // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
-        
-            
         for (let i = 0; i < maxPredictions; i++) {
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
@@ -159,34 +158,6 @@
             var end = new Audio('end.mp3');
             end.play();
         }
-
-
-        /*var ctx;
-        function inti() {
-            var canvas = document.getElementById("canvas");
-            ctx = canvas.getContect("2d");
-            ctx.font = "32px 'MS ゴシック' ";
-
-            ctx.strokeStyle = "black";
-            ctx.strokeText(count ,100 ,100);
-
-        }
-        
-        function sleep(waitMsec) {
-         var startMsec = new Date();
- 
-        // 指定ミリ秒間だけループさせる（CPUは常にビジー状態）
-         while (new Date() - startMsec < waitMsec);
-        }
- 
-        sleep(1000);
- 
-        // 5秒後にメッセージを表示
-        console.log(count);*/
-
-         
-     
-            
     
     
 </script>
