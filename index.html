@@ -25,7 +25,7 @@
     font-size:15px;
     }
     h3{
-    font-size:20px;
+    font-size:18px;
     margin:3px;
     }
     </style>
@@ -40,10 +40,10 @@
     <br>
     <br>
     <br>
-    <h1 style="text-align:center">野菜レジ3</h1>
+    <h1 style="text-align:center">野菜レジ4</h1>
     <div style="text-align:center">Teachable Machine Image Model</div>
     <div style="text-align:center" class="area">
-    <button a class="inline-block button" href="#"  onclick="init()">Start</button>
+    <button a class="inline-block button" href="#"  onclick="init()">お買い物スタート</button>
     <div style="text-align:center" id="webcam-container"></div>
     <div style="text-align:center" id="label-container"></div>
 
@@ -105,10 +105,6 @@
         webcam.update(); // update the webcam frame
         await predict();
         window.requestAnimationFrame(loop);
-        if(b!=1){
-        bgm.play();
-        b=1;
-        }
         }
 
     // run the webcam image through the image model
@@ -165,6 +161,11 @@
             cabage.pause();
             tomato.pause();
             a=4
+            if(b!=1){
+            bgm.play();
+            b=1;
+            }
+
             }
         }
             document.getElementById("count").textContent="合計："+count+"円";
