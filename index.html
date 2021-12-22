@@ -40,7 +40,7 @@
     <br>
     <br>
     <br>
-    <h1 style="text-align:center">野菜レジ</h1>
+    <h1 style="text-align:center">野菜レジ1</h1>
     <div style="text-align:center">Teachable Machine Image Model</div>
     <div style="text-align:center" class="area">
     <button a class="inline-block button" href="#"  onclick="init()">お買い物スタート</button>
@@ -100,6 +100,9 @@
         var countonion = 0;
         var countcabage = 0;
         var counttomato = 0;
+        var onion = new Audio('51yen.mp3');
+		var cabage = new Audio('95yen.mp3');
+        var tomato = new Audio('48yen.mp3');
     
     async function loop() {
         webcam.update(); // update the webcam frame
@@ -127,9 +130,6 @@
             status = "Nothing"
         }
 
-            var onion = new Audio('51yen.mp3');
-			var cabage = new Audio('95yen.mp3');
-            var tomato = new Audio('48yen.mp3');
 
         if (status == "玉ねぎ"){
             if (a!=1){
