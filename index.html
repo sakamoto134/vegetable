@@ -87,10 +87,11 @@
             labelContainer.appendChild(document.createElement("div"));
         }
     
-        var welcome =new Audio('welcome.mp3')
+        var welcome =new Audio('welcome.mp3');
         welcome.play();
     }
-    
+        var bgm = new Audio('bgm.mp3');
+        var b = 0;
         var a = 0;
         var count = 0;
         var countonion = 0;
@@ -101,6 +102,10 @@
         webcam.update(); // update the webcam frame
         await predict();
         window.requestAnimationFrame(loop);
+        if(b!=1){
+        bgm.play();
+        b=1;
+        }
         }
 
     // run the webcam image through the image model
@@ -163,7 +168,6 @@
             document.getElementById("countonion").textContent="玉ねぎ51円×"+countonion+"点";
             document.getElementById("countcabage").textContent="キャベツ95円×"+countcabage+"点";
             document.getElementById("counttomato").textContent="トマト48円×"+counttomato+"点";
-
 
     }
             document.getElementById("counting").onclick = function() {
