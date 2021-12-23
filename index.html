@@ -36,8 +36,8 @@
     <title>野菜レジ</title>
 </head>
 <body>
-    <br><br><br> <br>
-    <h1 style="text-align:center">野菜レジ1</h1>
+    <br><br><br><br>
+    <h1 style="text-align:center">野菜レジ2</h1>
     <div style="text-align:center">Teachable Machine Image Model</div>
     <div style="text-align:center" class="area">
     <button a class="inline-block button" href="#"  onclick="init()">お買い物スタート</button>
@@ -48,9 +48,10 @@
     <h3 style="text-align:center" id="countcabage"></h3>
     <h3 style="text-align:center" id="counttomato"></h3>
     <h3 style="text-align:center" id="count"></h3>
-    <button  id="counting">会計</h3>
-    <button  id="countend">会計完了</h3>
-    <br> <br> <br> <br>
+    <button  id="counting"></h3>
+    <button  id="countend"></h3>
+    <p></p>
+    <br><br><br>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
 <script type="text/javascript">
@@ -163,6 +164,9 @@
             document.getElementById("countonion").textContent="玉ねぎ51円×"+countonion+"点";
             document.getElementById("countcabage").textContent="キャベツ95円×"+countcabage+"点";
             document.getElementById("counttomato").textContent="トマト48円×"+counttomato+"点";
+
+            document.getElementById("counting").textContent="会計";
+            document.getElementById("countend").textContent="会計完了";
 
             if(b!=1){
             bgm.play();
