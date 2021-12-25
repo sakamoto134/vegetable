@@ -43,7 +43,6 @@
     <button a class="inline-block button" href="#"  onclick="init()">お買い物スタート</button>
     <div style="text-align:center" id="webcam-container"></div>
     <div style="text-align:center" id="label-container"></div>
-
     <h3 style="text-align:center" id="countonion"></h3>
     <h3 style="text-align:center" id="countcabage"></h3>
     <h3 style="text-align:center" id="counttomato"></h3>
@@ -101,6 +100,7 @@
         var onion = new Audio('51yen.mp3');
 		var cabage = new Audio('95yen.mp3');
         var tomato = new Audio('48yen.mp3');
+        //変数の定義
     
     async function loop() {
         webcam.update(); // update the webcam frame
@@ -126,7 +126,7 @@
             status = "トマト"
         }else if(prediction[3].probability.toFixed(2) > 0.80){
             status = "Nothing"
-        }
+        }//野菜を画像認識で判別
 
 
         if (status == "玉ねぎ"){
@@ -135,47 +135,43 @@
             count = count + 51;       
             countonion++;
             a=1;
-            }
-
+            }//玉ねぎの時に野菜点数カウント&音声を再生
         }else if(status == "キャベツ"){
             if (a!=2){
             cabage.play();
             count = count + 95;
             countcabage++;
             a=2;
-            }
-        
+            }//キャベツの時に野菜点数カウント&音声を再生
         }else if(status == "トマト"){
             if (a!=3){
             tomato.play();
             count = count + 48;
             counttomato++;
             a=3;
-            }
-
+            }//トマトの時に野菜点数カウント&音声を再生
         }else if(status == "Nothing"){
             if (a!=4){
             a=4;
-
             }
         }
             document.getElementById("count").textContent="合計："+count+"円";
             document.getElementById("countonion").textContent="玉ねぎ51円×"+countonion+"点";
             document.getElementById("countcabage").textContent="キャベツ95円×"+countcabage+"点";
             document.getElementById("counttomato").textContent="トマト48円×"+counttomato+"点";
-
             document.getElementById("counting").textContent="会計";
             document.getElementById("countend").textContent="会計完了";
+            //野菜点数と合計金額の文字の反映
 
             if(b!=1){
             bgm.play();
             b=1;
-            }
-    }
+            }//BGMの再生
+        }
             document.getElementById("counting").onclick = function() {
             var confirm = new Audio('confirm.mp3');
             confirm.play();
-        }
+        }//会計ボタンをクリックしたときの音声の再生
             document.getElementById("countend").onclick = function() {
             count = 0;
             countonion = 0;
@@ -185,7 +181,7 @@
             end.play();
             bgm.pause();
             b=2;
-        }
+        }//会計完了ボタンをクリックしたときの野菜点数および金額のリセット&音声の再生
     
     
 </script>
